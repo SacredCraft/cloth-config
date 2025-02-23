@@ -211,6 +211,11 @@ public abstract class AbstractConfigScreen extends Screen implements ConfigScree
     }
     
     @Override
+    public boolean mouseDragged(double d, double e, int i, double f, double g) {
+        return this.getChildAt(d, e).filter((guiEventListener) -> guiEventListener.mouseDragged(d, e, i, f, g)).isPresent();
+    }
+    
+    @Override
     public boolean mouseReleased(double double_1, double double_2, int int_1) {
         if (this.focusedBinding != null && this.startedKeyCode != null && !this.startedKeyCode.isUnknown() && focusedBinding.isAllowMouse()) {
             focusedBinding.setValue(startedKeyCode);
