@@ -69,7 +69,7 @@ public abstract class DynamicSmoothScrollingEntryListWidget<E extends DynamicEnt
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
         if (!smoothScrolling)
             return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
-        if ((this.getFocused() != null && this.isDragging() && button == 0) && this.getFocused().mouseDragged(mouseX, mouseY, button, deltaX, deltaY)) {
+        if ((this.getFocused() != null && this.isDragging()) && this.getFocused().mouseDragged(mouseX, mouseY, button, deltaX, deltaY)) {
             return true;
         } else if (button == 0 && this.scrolling) {
             if (mouseY < (double) this.top) {
